@@ -1,3 +1,3 @@
-# Final-Project-Chess
+# Final-Java-Project-Tic-Tac-Toe
 
-Creating a chess game in Java!
+Creating a Tic Tac Toe game in Java!
