@@ -1,3 +1,3 @@
-# Final-Java-Project-Tic-Tac-Toe
+# Final-Project-Hotel
 
-Creating a Tic Tac Toe game in Java!
+
