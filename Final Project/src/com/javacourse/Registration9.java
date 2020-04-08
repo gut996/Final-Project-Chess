@@ -1,4 +1,4 @@
-package com.javacourse;
+package com.ig.javacourse.finalProject;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -18,12 +18,11 @@ import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 
 //import com.sun.jdi.connect.spi.Connection;
-
 public class Registration9 extends JFrame {
 	/**
-	 *
-	 */
-//	private static final long serialVersionUID = 1L;
+	*
+	*/
+// private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**
@@ -76,7 +75,7 @@ public class Registration9 extends JFrame {
 		adress.setBounds(154, 211, 171, 23);
 		contentPane.add(adress);
 		JLabel user_adress = new JLabel("Address");
-		user_adress.setBounds(106, 211, 48, 23);
+		user_adress.setBounds(96, 211, 58, 23);
 		contentPane.add(user_adress);
 		JTextPane textPane_1 = new JTextPane();
 		textPane_1.setBounds(154, 124, 28, -46);
@@ -118,17 +117,20 @@ public class Registration9 extends JFrame {
 		JTextPane exp2 = new JTextPane();
 		exp2.setBounds(251, 338, 85, 23);
 		contentPane.add(exp2);
-
 		JButton registration = new JButton("Registration");
 		registration.setBounds(187, 373, 117, 29);
 		contentPane.add(registration);
 
+		JLabel success = new JLabel("");
+		success.setFont(new Font("Times New Roman", Font.PLAIN, 23));
+		success.setBounds(138, 414, 224, 38);
+		contentPane.add(success);
 		registration.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					Class.forName("com.mysql.cj.jdbc.Driver");
-					Connection conn = (Connection) DriverManager
-							.getConnection("jdbc:mysql://localhost:8889/Hotel?serverTimezone=UTC", "root", "Hello123");
+					Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:8889/Hotel",
+							"ion_gutu", "HelloWorld1234");
 					PreparedStatement ps = conn.prepareStatement(
 							"insert into customers(customer_name, customer_email, customer_phone, customer_address, type, card_number, cvv_name, expiration ) values(?,?,?,?,?,?,?,?)");
 					ps.setString(1, customer.getText());
@@ -148,6 +150,7 @@ public class Registration9 extends JFrame {
 					int x = ps.executeUpdate();
 					if (x > 0) {
 						System.out.println("Registration is done successfully.");
+						success.setText("Booking successful");
 					} else {
 						System.out.println("Registration failed.");
 					}
